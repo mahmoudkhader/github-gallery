@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+
+.link-icon {
+  height: 2rem;
+}
+
+.github-img {
+  width: 100%;
+  display: block;
+}
+
+.github-card {
+  min-height: 550px;
+}
