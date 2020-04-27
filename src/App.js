@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const App = () => {
-  const [state, setState] = useState({
-    repos: [],
-  });
+  const [repos, setRepos] = useState([]);
 
   useEffect(() => {
     fetch(`https://api.github.com/users/mahmoudkhader/repos?`)
@@ -11,16 +9,13 @@ const App = () => {
       .then((res) => res.json())
       // this gives us data, which will set the state, where we set the repos to the data coming in
       .then((data) => {
-        setState(() => ({
-          ...state,
-          repos: data,
-        }));
+        setRepos(data);
       })
       .catch((err) => console.log(err));
   }, []);
 
   // create repoItems variables and map the repos
-  const repoItems = state.repos.map((repo) => (
+  const repoItems = repos.map((repo) => (
     // set that to a div, with the key of the repo id (each repo will be diesplayed in teh div)
     <div key={repo.id} className="col-xl-4 col-md-6 mb-3">
       <div className="card text-white bg-primary h-100">
